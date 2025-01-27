@@ -1,5 +1,3 @@
-Name: Vijay Abhinav Telukunta
-
 ## Project Description 
 
 This project implements a text redaction tool that identifies and redacts sensitive information from textual data. Utilizing the Google Cloud Natural Language API and NLTK, the tool processes text to detect and redact various types of sensitive entities, including names, addresses, dates, phone numbers, and specific concepts.
@@ -73,20 +71,6 @@ The tests directory contains unit tests for various functions within the redacto
  - test_phones.py: Tests whether names are correctly redacted
 
 These tests use pytest and unittest.mock to simulate real scenarios and validate the functionality of the project code.
-
-## Bugs and Assumptions
-
- - The code wouldn't work accurately and it won't be successful in redacting the addresses correctly. I have experimented with various libraries such as usaddress, spacy, google api etc. among which no library was accurate in handling addresses properly. The best address redaction among these was with google api. So, I used it.
- - I am assuming phone numbers would be of format 3 digits-4 digits-4 digits or +country code 3d-4d-4d. Apart from these patterns, regex fails to correctly identify phone number.
- - For dates, I am assuming to take day of week as well for redaction. For example, the total string : Tue 27th Dec 2001 would be redacted including Tue.
- - For concepts, I have used NLTK to capture synonyms of given concept word and redacting sentences. There might be issues in properly capturing all synonyms of a given word.
- - For testing address and concepts, since google api and nltk are involved, there is no straight forward way to test it in pytest. But, I have tested those functions from command line and its working correctly.
-
- ## Resources for help
-
-  - Google API - https://cloud.google.com/natural-language/docs/reference/libraries#setting_up_authentication
-  - NLTK - https://www.nltk.org/
-
 
 ## Keys
 
